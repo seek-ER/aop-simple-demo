@@ -18,11 +18,11 @@ import org.springframework.stereotype.Component;
 public class PermissionSecondAspect {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Pointcut("@annotation(com.example.aopdemo.annotation.PermissionAnnotation)")
-    private void permissionCheck() {
-    }
+//    @Pointcut("@annotation(com.example.aopdemo.annotation.PermissionAnnotation)")
+//    private void permissionCheck() {
+//    }
 
-    @Around("permissionCheck()")
+    @Around("com.example.aopdemo.aspect.PermissionFirstAspect.permissionCheck()")
     public Object permissionCheckSecond(ProceedingJoinPoint joinPoint) throws Throwable {
         logger.info("===================第二个切面===================：" + System.currentTimeMillis());
 

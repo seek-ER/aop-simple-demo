@@ -19,7 +19,7 @@ public class PermissionFirstAspect {
 
     // 定义一个切面，括号内写入第1步中自定义注解的路径
     @Pointcut("@annotation(com.example.aopdemo.annotation.PermissionAnnotation)")
-    private void permissionCheck() {
+    public void permissionCheck() {
     }
 
     @Around("permissionCheck()")
