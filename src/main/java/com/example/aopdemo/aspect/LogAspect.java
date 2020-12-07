@@ -1,18 +1,21 @@
-package com.example.aopdemo.advice;
+package com.example.aopdemo.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class LogAdvice {
+public class LogAspect {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
     @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
     private void logAdvicePointcut(){}
 
     @Before("logAdvicePointcut()")
     public void logAdvice(){
-        System.out.println("get请求的advice被触发了");
+        logger.info("get请求的advice被触发了");
     }
 }
